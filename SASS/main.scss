@@ -1,18 +1,26 @@
 @use 'abstracts/variables';
-@use 'abstracts/mixins';
 
 @use 'base/reset';
 @use 'base/base';
 
 @use 'components/productos-cartas';
 @use 'components/filtros-productos';
+@use 'components/catalogoProductos';
+@use 'components/catalogoProductosAdmin';
+@use 'components/productos-destacados';
+
 
 @use 'layout/header';
 @use 'layout/footer';
 
 @use 'pages/index';
-@use 'pages/productos';
 @use 'pages/nosotros';
 @use 'pages/producto';
+@use 'pages/login';
+@use 'pages/inicioAdmin';
+@use 'pages/agregar';
+@use 'pages/modificar';
+@use 'pages/eliminar';
+
 
 @use 'themes/default';

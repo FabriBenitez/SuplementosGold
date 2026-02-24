@@ -1,0 +1,249 @@
+@import"../abstracts/variables";
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: $dorado-claro;
+  }
+
+  p {
+    color: #aaa;
+    margin-top: 0.5rem;
+  }
+
+  .btn-logout {
+    margin-top: 1rem;
+    background: #e63946;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      background: #d62828;
+    }
+  }
+}
+
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2rem;
+
+  .btn-agregar {
+    background-color: #10b981;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600; 
+
+    &:hover {
+      background-color: #059669;
+      transition: background 0.3s ease, transform 0.1s ease;
+    }
+  }
+  .btn-eliminar {
+    background: #e63946;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+
+    &:hover {
+      background: #d62828;
+    }
+  }
+  .btn-modificar{
+    background: #3959e6;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+
+    &:hover {
+      background: #0d34e0;
+    }
+  }
+  button{
+    margin: 1rem;
+  }
+}
+
+
+.filtros-productos {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem;
+
+  input, select {
+    flex: 1;
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #222;
+    color: #fff;
+  }
+
+  select {
+    flex: 0.5;
+    cursor: pointer;
+  }
+}
+
+// Tablet (768px - 1024px)
+@media (max-width: 1024px) {
+  .admin-header {
+    margin-bottom: 1.5rem;
+
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+
+    .btn-logout {
+      padding: 0.5rem 0.9rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  .acciones {
+    margin: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    .btn-agregar,
+    .btn-eliminar,
+    .btn-modificar {
+      padding: 0.6rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    button {
+      margin: 0.5rem;
+    }
+  }
+
+  .filtros-productos {
+    margin: 1.5rem;
+    gap: 0.8rem;
+
+    input, select {
+      padding: 0.6rem;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+// Mobile (hasta 767px)
+@media (max-width: 767px) {
+  .admin-header {
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+
+    .btn-logout {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.9rem;
+      margin-top: 0.8rem;
+    }
+  }
+
+  .acciones {
+    flex-direction: column;
+    margin: 1rem;
+    gap: 0;
+
+    .btn-agregar,
+    .btn-eliminar,
+    .btn-modificar {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1rem;
+    }
+
+    button {
+      margin: 0.5rem 0;
+    }
+  }
+
+  .filtros-productos {
+    flex-direction: column;
+    margin: 1rem;
+    gap: 0.8rem;
+
+    input, select {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1rem;
+    }
+
+    select {
+      flex: 1;
+    }
+  }
+}
+
+// Mobile pequeño (hasta 480px)
+@media (max-width: 480px) {
+  .admin-header {
+    height: 6rem;
+    h1 {
+      font-size: 1.3rem;
+      margin: 1rem 0;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+    #logoutBtn {
+      padding: 0.4rem 0.7rem;
+      font-size: 0.85rem;
+      margin: 0 0 1rem 0;
+    }
+  }
+
+  .acciones {
+    margin: 0.8rem;
+
+    .btn-agregar,
+    .btn-eliminar,
+    .btn-modificar {
+      padding: 0.7rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  .filtros-productos {
+    margin: 0.8rem;
+    gap: 0.6rem;
+
+    input, select {
+      padding: 0.7rem;
+      font-size: 0.95rem;
+    }
+  }
+}

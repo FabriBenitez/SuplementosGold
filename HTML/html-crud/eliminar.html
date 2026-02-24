@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Producto</title>
+    <link rel="stylesheet" href="../../CSS/style.css">
+</head>
+<body>
+  <h1 class="encabezado-eliminar">Eliminar Producto</h1>
+  <button class="boton-volver" onclick="history.back()">⟵ Volver</button>
+
+  <form id="form-eliminar">
+    <label for="select-productos">Selecciona un producto:</label><br /><br />
+    <select id="select-productos" required>
+      <option value="">Cargando productos...</option>
+    </select><br /><br />
+
+    <div id="preview"></div><br />
+
+    <button type="submit">Eliminar</button>
+  </form>
+  <script type="module" src="../../JS/js-crud/eliminar-producto.js"></script>
+</body>
+</html>

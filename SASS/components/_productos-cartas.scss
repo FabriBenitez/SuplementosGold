@@ -1,99 +1,257 @@
-@import "../abstracts/variables";
-#contenedor-productos {
+/*@import "../abstracts/variables";
+
+// Contenedor principal
+.suplementos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  gap: 20px;
-  justify-items: center;
-  margin: 3rem 5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-.producto-card {
+// Tarjeta de producto - GRID CON ALTURAS FIJAS
+.card-producto {
+  display: grid;
+  grid-template-rows: auto; // Deja que producto-info controle la altura
   background-color: $gris-fondo;
   border: 1px solid $gris-borde;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba($primario, 0.1);
-  width: 20rem;
-  text-align: center;
-  transition: box-shadow 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba($primario, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
   &:hover {
-    box-shadow: 0 6px 15px rgba($primario, 0.2);
-  }
-
-  img {
-    width: 100%;
-    height: 220px; 
-    object-fit: contain;
-    display: block;
-    margin: 1rem auto;
-    margin-bottom: 12px;
-  }
-
-  h3 {
-    color: $primario;
-    font-family: $tipografia;
-    font-size: 1.6rem;
-    margin-bottom: 8px;
-    letter-spacing: 1px;
-  }
-
-  p {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: darken($primario, 15%);
-  }
-
-  a {
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    text-decoration: none;
-    color: $fondo-header;
-    padding: 15px 20px;
-
-    &:hover {
-      transform: scale(1.05);
-    }
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba($primario, 0.20);
   }
 }
 
-// Separación de media queries para mejorar organización
+// Información del producto - ESTRUCTURA FIJA CON GRID
+.producto-info {
+  display: grid;
+  grid-template-rows: 60px auto 180px 1fr auto; // Filas fijas
+  padding: 16px;
+  gap: 8px;
+}
 
+// Nombre del producto - FILA 1 (60px)
+.producto-nombre {
+  color: $primario;
+  font-family: $tipografia;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+// Tipo de producto - FILA 2 (auto)
+.producto-tipo {
+  font-size: 0.85rem;
+  margin: 0;
+  color: darken($primario, 15%);
+  font-weight: 500;
+}
+
+// Contenedor de imagen - FILA 3 (180px)
+.producto-img-container {
+  width: 100%;
+  height: 180px; // ALTURA FIJA
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.producto-img-container img,
+.producto-img {
+  width: auto;
+  max-width: 160px;
+  height: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+// Descripción - FILA 4 (flexible)
+.producto-descripcion {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #666;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  align-self: start;
+}
+
+// Precio - FILA 5 (auto)
+.producto-precio {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  padding-top: 8px;
+  color: $primario;
+  align-self: end;
+}
+
+// Stock
+.producto-stock {
+  font-size: 0.9rem;
+  margin: 4px 0 0 0;
+  color: darken($primario, 15%);
+}
+
+// Botón de WhatsApp
+.card-producto a {
+  display: inline-block;
+  text-decoration: none;
+  color: $fondo-header;
+  background-color: #25d366;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 3px 7px rgba($primario, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 12px;
+  text-align: center;
+
+  &:hover {
+    background-color: darken(#25d366, 10%);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+}
+
+// === RESPONSIVE ===
+
+// Tablet (768px - 1024px)
 @media (max-width: 1024px) {
-  #contenedor-productos {
-    margin: 2rem 3rem;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  .suplementos {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 16px;
   }
 
-  .producto-card {
-    h3 {
-      font-size: 1.5rem;
-    }
+  .producto-info {
+    grid-template-rows: 55px auto 160px 1fr auto;
+    padding: 12px;
+  }
+
+  .producto-img-container {
+    height: 160px;
+  }
+
+  .producto-img-container img,
+  .producto-img {
+    max-height: 160px;
+  }
+
+  .producto-nombre {
+    font-size: 1rem;
+  }
+
+  .producto-descripcion {
+    font-size: 0.85rem;
+  }
+
+  .producto-precio {
+    font-size: 1.1rem;
+  }
+}
+
+// Mobile (hasta 767px)
+@media (max-width: 767px) {
+  .suplementos {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+    padding: 12px;
+  }
+
+  .producto-info {
+    grid-template-rows: 50px auto 140px 1fr auto;
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .producto-img-container {
+    height: 140px;
+  }
+
+  .producto-img-container img,
+  .producto-img {
+    max-height: 140px;
+  }
+
+  .producto-nombre {
+    font-size: 0.95rem;
+  }
+
+  .producto-tipo {
+    font-size: 0.8rem;
+  }
+
+  .producto-descripcion {
+    font-size: 0.8rem;
+  }
+
+  .producto-precio {
+    font-size: 1rem;
   }
 }
 
-@media (max-width: 600px) {
-  #contenedor-productos {
-    margin: 1.5rem 1.5rem;
-    grid-template-columns: 1fr;
+// Mobile pequeño (hasta 480px)
+@media (max-width: 480px) {
+  .suplementos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 10px;
   }
 
-  .producto-card {
-    img {
-      width: 10rem;
-      height: auto;
-    }
-
-    h3 {
-      font-size: 1.4rem;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-
-    a {
-      padding: 6px 14px;
-      font-size: 0.9rem;
-    }
+  .producto-info {
+    grid-template-rows: 45px auto 120px 1fr auto;
+    padding: 8px;
+    gap: 4px;
   }
-}
+
+  .producto-img-container {
+    height: 120px;
+  }
+
+  .producto-img-container img,
+  .producto-img {
+    max-height: 120px;
+  }
+
+  .producto-nombre {
+    font-size: 0.9rem;
+  }
+
+  .producto-tipo {
+    font-size: 0.75rem;
+  }
+
+  .producto-descripcion {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .producto-precio {
+    font-size: 0.95rem;
+  }
+
+  .card-producto a {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}*/

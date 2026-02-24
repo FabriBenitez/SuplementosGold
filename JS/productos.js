@@ -1,4 +1,4 @@
-const productos = [
+/*const productos = [
   {
     id: 1,
     nombre: "Creatina 150g Star Nutrition",
@@ -19,7 +19,7 @@ const productos = [
     id: 3,
     nombre: "Creatina 300g Doypack Star Nutrition",
     tipo: "Creatina",
-    precio: 29999,
+    precio: 28999,
     imagen: "../IMG/CREATINA/CreatinaPack300g.webp",
     descripcion: "Creatina micronizada para una absorción rápida y eficaz, ideal para deportistas que realizan entrenamientos intensos. Favorece la fuerza y la resistencia muscular. Se recomienda consumir 3-5 gramos diarios después de entrenar, disuelta en agua o jugo."
   },
@@ -35,7 +35,7 @@ const productos = [
     id: 5,
     nombre: "Proteína Doypack Star Nutrition 908g Chocolate",
     tipo: "Proteina",
-    precio: 40500,
+    precio: 34500,
     imagen: "../IMG/PROTEINA/ProteinaStarNutrion908gChocolate.webp",
     descripcion: "Proteína en polvo con delicioso sabor chocolate, diseñada para favorecer el desarrollo y la recuperación muscular tras el entrenamiento. Aporta un alto contenido de aminoácidos esenciales. Se recomienda tomar una porción de 30 gramos disuelta en agua o leche, preferentemente después del ejercicio."
   },
@@ -43,7 +43,7 @@ const productos = [
     id: 6,
     nombre: "Proteína Doypack Star Nutrition 908g Vainilla",
     tipo: "Proteina",
-    precio: 40500,
+    precio: 34500,
     imagen: "../IMG/PROTEINA/ProteinaStarNutrion908gVainilla.webp",
     descripcion: "Proteína con perfil completo de aminoácidos esenciales y sabor suave a vainilla. Ideal para consumir después del entrenamiento para potenciar la recuperación muscular y el crecimiento. Tomar una porción de 30 gramos disuelta en agua o leche."
   },
@@ -51,7 +51,7 @@ const productos = [
     id: 7,
     nombre: "Proteína Xtrength 907g Chocolate",
     tipo: "Proteina",
-    precio: 34000,
+    precio: 36000,
     imagen: "../IMG/PROTEINA/ProteinaXtrenght907gChocolate.webp",
     descripcion: "Fórmula potente diseñada para favorecer el crecimiento muscular y la recuperación. Con intenso sabor a chocolate, aporta proteínas de alta calidad para optimizar tu entrenamiento. Se recomienda tomar 30 gramos después de la actividad física, mezclado en agua o leche."
   },
@@ -59,7 +59,7 @@ const productos = [
     id: 8,
     nombre: "Pancakes Proteicos Granger Chocolate 400g",
     tipo: "Pancakes",
-    precio: 12800,
+    precio: 11800,
     imagen: "../IMG/PANCAKES/PancakesProteicosGrangerChocolate.webp",
     descripcion: "Preparación alta en proteínas y baja en azúcares, ideal para desayunos o snacks saludables. Fácil y rápido de preparar: mezclar con agua o leche y cocinar en sartén. Perfecto para quienes buscan controlar la ingesta de macronutrientes sin sacrificar sabor."
   },
@@ -67,7 +67,7 @@ const productos = [
     id: 9,
     nombre: "Pancakes Proteicos Granger Vainilla 400g",
     tipo: "Pancakes",
-    precio: 12800,
+    precio: 11800,
     imagen: "../IMG/PANCAKES/PancakesProteicosGrangerVainilla.webp",
     descripcion: "Snack proteico con sabor vainilla, ideal para dietas balanceadas y control de peso. Fácil de preparar mezclando con agua o leche y cocinando en sartén. Perfecto para un desayuno nutritivo o merienda saludable."
   },
@@ -75,7 +75,7 @@ const productos = [
     id: 10,
     nombre: "BCAA Star Nutrition 270g",
     tipo: "Bcaa",
-    precio: 28500,
+    precio: 25500,
     imagen: "../IMG/BCAA/Bcaa270g.webp",
     descripcion: "Aminoácidos esenciales que favorecen la recuperación muscular y reducen el catabolismo durante entrenamientos intensos. Ideal para tomar 5-10 gramos antes o durante la actividad física para mejorar resistencia y evitar fatiga."
   },
@@ -83,7 +83,7 @@ const productos = [
     id: 11,
     nombre: "Pre Entreno Star Nutrition Blue Raz 240g",
     tipo: "Pre Entreno",
-    precio: 23999,
+    precio: 21999,
     imagen: "../IMG/PRE-ENTRENO/PreEntrenoTntstartDynamiteblueraze240g.webp",
     descripcion: "Mejora la energía, el enfoque y la resistencia durante el entrenamiento. Formulado para maximizar tu rendimiento. Tomar una porción 20-30 minutos antes de entrenar, mezclada con agua."
   },
@@ -97,7 +97,7 @@ const productos = [
   },
   {
     id: 13,
-    nombre: "Citrato de Magnesio 105g Natuliv",
+    nombre: "Citrato de Magnesio 105g Natuliv - ENA",
     tipo: "Magnesio",
     precio: 14000,
     imagen: "../IMG/MAGNESIO/CitratoDeMagnesioLimonada.webp",
@@ -115,7 +115,7 @@ const productos = [
     id: 16,
     nombre: "Colágeno 10g Star Nutrition Sport Naranja",
     tipo: "Colageno",
-    precio: 21000,
+    precio: 20000,
     imagen: "../IMG/COLAGENO/Colageno10g.webp",
     descripcion: "Suplemento con colágeno hidrolizado que favorece la salud de articulaciones, piel y cabello. Con agradable sabor naranja. Tomar una dosis diaria disuelta en agua o jugo para mejores resultados."
   },
@@ -127,11 +127,11 @@ const productos = [
     imagen: "../IMG/COLAGENO/Colageno210g.webp",
     descripcion: "Fórmula completa para fortalecer huesos, articulaciones y mejorar la elasticidad de la piel. Se recomienda tomar una dosis diaria disuelta en líquido, preferentemente por la mañana."
   },*/
-  {
+/*  {
     id: 18,
     nombre: "L-Carnitina",
     tipo: "L Carnitina",
-    precio: 18500,
+    precio: 17500,
     imagen: "../IMG/L-Carnitine/L-carnitine.png",
     descripcion: "Ayuda a transformar la grasa en energía, mejorando el rendimiento físico y la quema de grasa. Ideal para combinar con actividad física. Tomar 1-2 dosis antes del ejercicio diario."
   },
@@ -151,7 +151,7 @@ const productos = [
     imagen: "../IMG/BETAALANINA/BetaAlanina300g.webp",
     descripcion: "Suplemento que mejora la resistencia muscular y retrasa la fatiga durante entrenamientos intensos. Tomar entre 3 y 6 gramos diarios, divididos en dosis antes del ejercicio para mejores resultados."
   }*/
-  {
+/*  {
     id: 21,
     nombre: "Creatina Microionizada ENA",
     tipo: "Creatina",
@@ -163,7 +163,7 @@ const productos = [
     id: 22,
     nombre: "Proteína Doypack Star Nutrition Banana",
     tipo: "Proteina",
-    precio: 40500,
+    precio: 34500,
     imagen: "../IMG/PROTEINA/Whey_Protein_banana_DOYPACK.png",
     descripcion: "Proteína en polvo con delicioso sabor a banana, diseñada para favorecer el desarrollo y la recuperación muscular tras el entrenamiento. Aporta un alto contenido de aminoácidos esenciales. Se recomienda tomar una porción de 30 gramos disuelta en agua o leche, preferentemente después del ejercicio."
   },
@@ -171,7 +171,7 @@ const productos = [
     id: 23,
     nombre: "Proteína Doypack Star Nutrition Frutilla",
     tipo: "Proteina",
-    precio: 40500,
+    precio: 34500,
     imagen: "../IMG/PROTEINA/Whey_protein_frutilla_doypack.png",
     descripcion: "Proteína en polvo con delicioso sabor a frutilla, diseñada para favorecer el desarrollo y la recuperación muscular tras el entrenamiento. Aporta un alto contenido de aminoácidos esenciales. Se recomienda tomar una porción de 30 gramos disuelta en agua o leche, preferentemente después del ejercicio."
   },
@@ -179,11 +179,11 @@ const productos = [
     id: 24,
     nombre: "Proteína Doypack Star Nutrition Cookies Cream",
     tipo: "Proteina",
-    precio: 40500,
+    precio: 34500,
     imagen: "../IMG/PROTEINA/Proteina_Doypack_Cookies_Cream.png",
     descripcion: "Proteína en polvo con delicioso sabor a Cookies Cream, diseñada para favorecer el desarrollo y la recuperación muscular tras el entrenamiento. Aporta un alto contenido de aminoácidos esenciales. Se recomienda tomar una porción de 30 gramos disuelta en agua o leche, preferentemente después del ejercicio."
   },
-    {
+  {
     id: 25,
     nombre: "Omega 3 Star Nutrition 60 cápsulas",
     tipo: "Omega3",
@@ -191,52 +191,5 @@ const productos = [
     imagen: "../IMG/OMEGA3/Omega3.png",
     descripcion: "Suplemento de Omega 3 de alta pureza, formulado para favorecer la salud cardiovascular, cerebral y articular. Aporta ácidos grasos esenciales EPA y DHA que contribuyen al buen funcionamiento del organismo. Se recomienda consumir 1 a 2 cápsulas diarias junto con las comidas."
   },
-    {
-    id: 26,
-    nombre: "Creatina one fit 200g",
-    tipo: "Creatina",
-    precio: 16000,
-    imagen: "../IMG/CREATINA/Creatina_OneFit.png",
-    descripcion: "Creatina de alta calidad diseñada para aumentar la fuerza, energía y acelerar la recuperación muscular. Ideal para deportistas exigentes. Tomar 3-5 gramos diarios, preferentemente tras el entrenamiento, mezclada en agua o jugo."
-  },
-  {
-    id: 27,
-    nombre: "Citrato de magnesio ENA 60 capsulas",
-    tipo: "Magnesio",
-    precio: 16000,
-    imagen: "../IMG/MAGNESIO/Citrato_Magnesio_ENA.png",
-    descripcion: "Mineral esencial que regula las funciones musculares y nerviosas, ayudando a prevenir calambres y mejorar el bienestar general. Con sabor refrescante a limonada. Disolver una cucharadita en agua y tomar una vez al día."
-  },
-  {
-    id: 28,
-    nombre: "Hydro BCAA Pro xtrength",
-    tipo: "Bcaa",
-    precio: 29500,
-    imagen: "../IMG/BCAA/Hydro_BCAA_Pro_xtrength.png",
-    descripcion: "Aminoácidos esenciales que favorecen la recuperación muscular y reducen el catabolismo durante entrenamientos intensos. Ideal para tomar 5-10 gramos antes o durante la actividad física para mejorar resistencia y evitar fatiga."
-  },
-  {
-    id: 29,
-    nombre: "Proteína Ena Truemade",
-    tipo: "Proteina",
-    precio: 39700,
-    imagen: "../IMG/PROTEINA/ProteinaEnaTruemade.png",
-    descripcion: "Proteína en polvo con delicioso sabor a Cookies Cream, diseñada para favorecer el desarrollo y la recuperación muscular tras el entrenamiento. Aporta un alto contenido de aminoácidos esenciales. Se recomienda tomar una porción de 30 gramos disuelta en agua o leche, preferentemente después del ejercicio."
-  },
-  {
-    id: 30,
-    nombre: "Proteína OneFit",
-    tipo: "Proteina",
-    precio: 24500,
-    imagen: "../IMG/PROTEINA/ProteinaOneFitClassic.png",
-    descripcion: "Proteína en polvo con delicioso sabor a Cookies Cream, diseñada para favorecer el desarrollo y la recuperación muscular tras el entrenamiento. Aporta un alto contenido de aminoácidos esenciales. Se recomienda tomar una porción de 30 gramos disuelta en agua o leche, preferentemente después del ejercicio."
-  },
-  {
-    id: 31,
-    nombre: "Shaker Ena",
-    tipo: "Shaker",
-    precio: 6000,
-    imagen: "../IMG/SHAKER/ShakerEnaTruemade.png",
-    descripcion: "Vaso mezclador con tapa hermética, ideal para preparar proteínas, pre-entrenos y otros suplementos. Diseño ergonómico con medidas graduadas. Perfecto para llevar al gimnasio o usar en casa."
-  }
 ];
+*/

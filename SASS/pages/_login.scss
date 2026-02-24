@@ -1,0 +1,163 @@
+@import '../abstracts/variables';
+@import '../components/boton-volver';
+
+.login-container {
+  margin: 3rem auto;
+  background: white;
+  border: 1px solid $gris-borde;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Encabezado */
+.login-header {
+  margin-bottom: 1.5rem;
+
+  h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: $primario;
+  }
+
+  p {
+    margin: 0.5rem 0 0;
+    color: darken($gris-borde, 30%);
+    font-size: 0.95rem;
+  }
+}
+
+/* Mensaje de error */
+.error-message {
+  background: rgba(255, 0, 0, 0.1);
+  color: red;
+  font-size: 0.9rem;
+  padding: 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  display: none; // se muestra dinámicamente con JS
+}
+
+/* Formulario */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1.2rem;
+
+  label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: $primario;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid $gris-borde;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $primario;
+    }
+  }
+}
+.input-password-container {
+  position: relative;
+  width: 100%;
+
+  input {
+    width: 100%;
+    padding-right: 2.5rem; // espacio para el icono
+  }
+
+  .toggle-password {
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+      transform: translateY(-50%) scale(1.05);
+    }
+  }
+}
+
+
+
+/* Botón login */
+.btn-login {
+  width: 100%;
+  background-color: $primario;
+  color: $dorado-claro;
+  border: none;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: darken($primario, 8%);
+    transform: scale(1.03);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) { // Tablet
+  .login-container {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+
+  .login-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn-login {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) { // Celular
+  .login-container {
+    padding: 1rem;
+    max-width: 95%;
+  }
+
+  .login-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .login-header p {
+    font-size: 0.85rem;
+  }
+
+  .form-group input {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-login {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+}

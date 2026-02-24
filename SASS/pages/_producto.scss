@@ -1,76 +1,51 @@
 @import "../abstracts/variables";
+@import '../components/boton-volver';
 
 main{
-  font-family: $tipografia;
-}
-.boton-volver {
-  display: inline-block;
-  background-color: #25d366;
-  color: #333;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  border: none;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #179246;
-  }
+  padding: 2rem
 }
 #detalle-producto {
-  padding: 2rem;
-  background-color: $gris-fondo;
-  width: 60%;
-  height: auto;
-  margin: auto;
-}
-.producto {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 1.5rem;
-  gap: 1.5rem;
-}
-.producto__imagen img {
-  width: 15rem;        
-  height: auto;         
+  justify-content: center;
+  align-items: flex-start; 
+  padding: 40px 20px;
+  min-height: 80vh; 
 }
 
-.producto__imagen{
-  width: 25rem;
-  height: auto;
-}
-.producto__info {
-  text-align: justify;
-  height: auto;
-}
-.producto__info h1 {
-  font-size: 2rem;
-  margin: 4rem 0;
+.detalle-card {
+  display: flex; 
+  flex-direction: row; 
+  max-width: 900px;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden; 
+  font-family: 'Arial', sans-serif; 
 }
 
-.precio {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #27ae60;
-  margin-bottom: 1rem;
+@media (max-width: 768px) {
+  .detalle-card {
+    flex-direction: column; 
+    max-width: 400px;
+  }
 }
 
-.descripcion {
-  color: #555;
-  margin-bottom: 1rem;
-  padding: 1rem 1.5rem;
-  text-align: justify;
+
+.detalle-img {
+  width: 45%; 
+  max-height: 500px; 
+  object-fit: cover; 
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.1));
 }
 
-/* Botón de WhatsApp */
-.boton-wpp {
+.boton-wpp{
+  width: 100%;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  justify-content: center;
   display: inline-flex;
   align-items: center;
   background-color: #25d366;
@@ -80,13 +55,67 @@ main{
   text-decoration: none;
 }
 
-.boton-wpp:hover {
-  background-color: #179246;
+@media (max-width: 768px) {
+  .detalle-img {
+    width: 100%; 
+    height: 300px;
+    border-radius: 15px 15px 0 0; 
+  }
 }
 
-.wpp-icono {
-  width: 20px;
-  height: 20px;
+.detalle-info {
+  width: 55%; 
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+}
+
+@media (max-width: 768px) {
+  .detalle-info {
+    width: auto;
+    padding: 20px;
+  }
+}
+
+
+.detalle-info h1 {
+  font-size: 2.2em;
+  color: #2c3e50; 
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-transform: uppercase; 
+  border-bottom: 2px solid #2bd341; 
+  padding-bottom: 5px;
+  line-height: 1.2;
+}
+
+.detalle-tipo {
+  font-size: 1.1em;
+  color: #7f8c8d;
+  margin-bottom: 15px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+.detalle-descripcion {
+  font-size: 1em;
+  color: #34495e;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1; 
+}
+
+.detalle-precio {
+  font-size: 2.5em;
+  color: #3a91b9; 
+  font-weight: 900; 
+  margin-top: 15px;
+  background-color: #a9fcb4;
+  padding: 8px 15px;
+  border-radius: 8px;
+  text-align: right;
+  letter-spacing: 1px;
 }
 
 
@@ -113,13 +142,13 @@ main{
     font-size: 1.25rem;
   }
 
-  .boton-volver, .boton-wpp {
+  .boton-wpp {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
   }
 }
 
-/* Celular: hasta 767px */
+
 @media only screen and (max-width: 767px) {
   #detalle-producto {
     width: 95%;
@@ -151,10 +180,6 @@ main{
     padding: 1rem 2rem;
   }
 
-  .boton-volver{
-    width: 60%;
-    padding: 1rem;
-  } 
   .boton-wpp {
     width: 100%;
     padding: 1rem;

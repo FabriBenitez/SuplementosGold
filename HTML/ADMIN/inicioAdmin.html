@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS/style.css">
+    <title>Inicio</title>
+</head>
+<body>
+    <header class="admin-header">
+        <h1>Gestión de Suplementos</h1>
+        <button id="logoutBtn" class="btn-logout">Cerrar Sesión</button>
+    </header>
+
+    <section class="acciones">
+        <button class="btn-agregar" onclick="window.location.href='../html-crud/agregar.html'">Agregar Suplemento</button>
+        <button class="btn-eliminar" onclick="window.location.href='../html-crud/eliminar.html'">Eliminar Suplemento</button>
+        <button class="btn-modificar" onclick="window.location.href='../html-crud/modificar.html'">Modificar Suplemento</button>
+    </section>
+
+    <section class="filtros-productos">
+        <label for="filtro-producto">Filtrar por producto: </label>
+        <select id="filtro-producto">
+            <option value="">Filtrar por producto</option>
+            <option value="Bcaa">Bcaa</option>
+            <option value="Cafeina">Cafeina</option>
+            <option value="Omega3">Omega 3</option>
+            <option value="Colageno">Colageno</option>
+            <option value="Creatina">Creatina</option>
+            <option value="Magnesio">Magnesio</option>
+            <option value="Multivitaminico">Multivitamínico</option>
+            <option value="Pancakes">Pancakes</option>
+            <option value="Proteina">Proteína</option>
+            <option value="Pre Entreno">Pre Entreno</option>
+            <option value="L Carnitina">L Carnitina</option>
+        </select>
+    </section>
+
+    <section class="suplementos">
+        <!--Acá se pone el js para cargar los productos-->
+    </section>
+
+    <script type="module" src="../../JS/Auth/cerrarSesion.js"></script>
+    <script type="module" src="../../JS/Auth/verificarSesion.js"></script>
+    <script type="module" src="../../JS/js-crud/listar-productos-admin.js"></script>
+
+</body>
+</html>

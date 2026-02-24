@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Poducto</title>
+    <link rel="stylesheet" href="../../CSS/style.css">
+</head>
+<body>
+  <h1 class="encabezado-agregar">Agregar Producto</h1>
+    <button class="boton-volver" onclick="history.back()">⟵ Volver</button>
+  <form id="form-agregar">
+    <label for="nombre">Nombre:</label><br />
+    <input type="text" id="nombre" placeholder="Nombre" required /><br />
+    <label for="descripcion">Descripción:</label><br />
+    <textarea id="descripcion" placeholder="Descripción"></textarea><br />
+    <label for="precio">Precio:</label><br />
+    <input type="number" id="precio" placeholder="Precio" required /><br />
+    <!--<label for="stock">Stock:</label><br />
+    <input type="number" id="stock" placeholder="Stock" required /><br />-->
+    <label for="tipo">Tipo:</label><br />
+
+    <section class="filter-bar">
+      <select id="tipo" aria-label="Filtrar por producto" name="filtro-producto">
+          <option value="">Filtrar por producto</option>
+          <option value="Bcaa">Bcaa</option>
+          <option value="Cafeina">Cafeína</option>
+          <option value="Omega3">Omega 3</option>
+          <option value="Colageno">Colágeno</option>
+          <option value="Creatina">Creatina</option>
+          <option value="Magnesio">Magnesio</option>
+          <option value="Multivitaminico">Multivitamínico</option>
+          <option value="Pancakes">Pancakes</option>
+          <option value="Proteina">Proteína</option>
+          <option value="Pre Entreno">Pre Entreno</option>
+          <option value="L Carnitina">L Carnitina</option>
+      </select>
+    </section>
+
+    <label for="imagen">Imagen:</label><br />
+    <input type="file" id="imagen" accept="image/*" /><br /><br />
+    <button type="submit">Agregar</button>
+  </form>
+
+  <script type="module" src="../../JS/js-crud/agregar-producto.js"></script>
+</body>
+</html>

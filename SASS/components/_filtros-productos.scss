@@ -10,14 +10,16 @@
   padding: 1rem;
   background-color: $fondo-header;
   border-radius: 1rem;
-  max-width: 70%;
+  max-width: 65%;
 
   label {
     color: $dorado-claro;
     font-weight: 6000;
     font-size: 1rem;
   }
-
+  #ordenPrecio, #filtrarTipo {
+    margin: 0 2rem 0 0;
+  }
   select {
     padding: 0.6rem 1rem;
     border-radius: 8px;
@@ -30,14 +32,14 @@
     transition: background 0.3s ease;
 
     &:hover {
-        background-color: $primario; 
+      background-color: $primario; 
     }
 
     option {
-        margin: 3rem ;
-        background-color: $primario;
-        color: $dorado-claro;
-        margin: 32rem 0;
+      margin: 3rem ;
+      background-color: $primario;
+      color: $dorado-claro;
+      margin: 32rem 0;
     }
   }
 }

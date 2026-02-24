@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style.css">
-    <title>Lista de productos</title>
-    <script src="https://t.contentsquare.net/uxa/c7c00dff4b4b4.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <title>Lista de productos</title>
 </head>
 <body>
   <header>
-      <a href="../index.html">
-          <img src="../IMG/Logo.webp" alt="Logo de Suplementos Gold" class="logo">
-      </a>
-      <nav>
-          <ul>
-              <li><a href="../HTML/productos.html">Productos</a></li>
-              <li><a href="../HTML/nosotros.html">Nosotros</a></li>
-          </ul>
-      </nav>
+    <a href="../index.html">
+        <img src="../IMG/Logo.webp" alt="Logo de Suplementos Gold" class="logo">
+    </a>
+    <nav>
+        <ul>
+            <li>
+                <a href="../HTML/productos.html">Productos</a>
+            </li>
+            <li>
+                <a href="../HTML/nosotros.html">Nosotros</a>
+            </li>
+            <li>
+                <a class="btnLogin" href="../HTML/ADMIN/Login.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="User-1--Streamline-Guidance-Free" height="24" width="24">
+                        <desc>
+                            User 1 Streamline Icon: https://streamlinehq.com
+                        </desc>
+                        <path stroke="#ffe138" d="M18.5 20.247V16S16 14.5 12 14.5 5.5 16 5.5 16v4.247M1.5 12C1.5 6.201 6.201 1.5 12 1.5S22.5 6.201 22.5 12 17.799 22.5 12 22.5 1.5 17.799 1.5 12Zm10.426 0.5S8.5 10.68 8.5 8c0 -1.933 1.569 -3.5 3.504 -3.5A3.495 3.495 0 0 1 15.5 8c0 2.68 -3.426 4.5 -3.426 4.5h-0.148Z" stroke-width="1"></path>
+                    </svg>
+                    ADMIN
+                </a>
+            </li>
+        </ul>
+    </nav>
   </header>
-<body>
-  <h1>Catálogo de Productos</h1>
+  <main>
+    <h1 class="encabezado-productos">Catálogo de Productos</h1>
 
-  <section class="filtros">
-    <label for="ordenPrecio">Ordenar:</label>
+    <section class="filtros">
+      <label for="ordenPrecio">Ordenar:</label>
       <select id="ordenPrecio" name="ordenPrecio">
         <option value="">Ordenar por precio</option>
         <option value="menor">Menor a mayor</option>
         <option value="mayor">Mayor a menor</option>
-    </select>
+      </select>
 
     <label for="filtrarTipo">Filtrar:</label>
       <select id="filtrarTipo" name="filtrarTipo">
         <option value="">Filtrar por producto</option>
         <option value="Bcaa">Bcaa</option>
-        <!--<option value="Beta Alanina">Beta Alanina</option>-->
         <option value="Cafeina">Cafeina</option>
         <option value="Omega3">Omega 3</option>
         <option value="Colageno">Colageno</option>
@@ -45,36 +58,25 @@
         <option value="Proteina">Proteína</option>
         <option value="Pre Entreno">Pre Entreno</option>
         <option value="L Carnitina">L Carnitina</option>
-        <option value="Shaker">Shaker</option>
+      </select>
+    </section>
 
-    </select>
-  </section>
+    <!-- Acá se mostrarán los productos -->
+    <div id="contenedor-productos" class="productos-grid">
+      
+    </div>
 
-  <!-- Acá se mostrarán los productos -->
-  <div id="contenedor-productos" class="productos-grid"></div>
-
-  <script src="../JS/productos.js"></script>
-  <script src="../JS/lista-productos.js"></script>   
-  <script src="../JS/ordenar-precios.js"></script> 
+  <script type="module" src="../JS/js-crud/listar-productos-cliente.js"></script>
+<!--  <script type="module" src="../JS/ordenar-precios.js"></script>
+  <script type="module" src="../JS/detalle.js"></script>-->
+  </main>
   <footer>
     <p>© 2025 Suplementos Gold. Todos los derechos reservados.</p>
-      <ul>
-          <li>
-              <a href="#">
-                <img class="iconos-footer" src="../SVG/whatsapp.svg" alt="Logo de Whatsapp">
-              </a>
-          </li>
-          <li>
-                <a href="https://www.instagram.com/suplementosgold_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
-                    <img class="iconos-footer" src="../SVG/instagram.svg" alt="Logo de instagram">
-                </a>
-            </li>
-            <li>
-                <a href="../index.html"> 
-                    <img class="iconos-footer" src="../IMG/Logo.webp" alt="Logo de suplementos gold">
-                </a>
-          </li>
-      </ul>
+    <ul>
+      <li><a href="#"><img class="iconos-footer" src="../SVG/whatsapp.svg" alt="Whatsapp"></a></li>
+      <li><a href="#" target="_blank"><img class="iconos-footer" src="../SVG/instagram.svg" alt="Instagram"></a></li>
+      <li><a href="../index.html"><img class="iconos-footer" src="../IMG/Logo.webp" alt="Logo"></a></li>
+    </ul>
   </footer>
 </body>
 </html>

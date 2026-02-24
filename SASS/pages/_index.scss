@@ -1,15 +1,14 @@
 @import "../abstracts/variables";
 main {
-  padding: 2rem;
-  font-family: $tipografia;
-  color: $primario;
   background-color: $gris-fondo;
+  min-height: 100vh;
   .carrusel {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     height: auto;
+    margin: 0 7%;
     img {
       flex: 0 0 100%;
       scroll-snap-align: center;
@@ -47,7 +46,6 @@ main {
           height: 40rem;
           display: block;
           border-radius: 1rem;
-
         }
       }
     }
@@ -74,123 +72,223 @@ main {
     }
   }
 
+  // Sección de texto de presentación
   .texto-presentacion {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
     text-align: center;
-
+    
     h1 {
-      font-size: 2.2rem;
-      color: $fondo-header;
+      font-size: 3rem;
+      color: $primario;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, $dorado-claro, darken($dorado-claro, 20%));
+        border-radius: 2px;
+      }
     }
-
+    
     p {
-      text-align: justify;
-      margin-top: 2rem;
-      font-size: 1.3rem;
-      color: $primario;
-      font-weight: bold;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: darken($gris-fondo, 40%);
+      margin-bottom: 3rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
-
+    
     h2 {
-      margin-top: 2.5rem;
-      font-size: 1.5rem;
+      font-size: 2rem;
       color: $primario;
+      margin-bottom: 2rem;
+      font-weight: 600;
     }
   }
-
+  
+  // Sección de características
   .caracteristicas {
-    display: flex;
-    justify-content: space-between;
-    text-align: justify;
-    margin: 3rem 0;
-    gap: 1.5rem;
-
+    background: white;
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    margin-bottom: 4rem;
+    
     article {
-      flex: 1;
-      background-color: #fff;
-      padding: 1.5rem;
-      border-radius: 0.75rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      svg {
-        width: 40px;
-        height: 40px;
-        color: $fondo-header;
-      }
-      p {
-        font-weight: bold;
-        font-size: 1rem;
-      }
-    }
-  }
-
-  .productos {
-    margin-top: 3rem;
-    text-align: center;
-
-    .productos-items {
-      display: inline-block;
-      margin: 1rem;
-      padding: 1rem;
-      width: 20rem;
-      height: 25rem;
-      background-color: #fff;
-      border-radius: 0.75rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
-      img {
-        width: 70%;
-        height: 70%;
-        border-radius: 8px;
-      }
-      .info {
-        margin-top: 2rem;
-        text-align: center;
-      }
-      h3 {
-        font-family: $tipografia;
-        margin: 0.5rem 0;
-        font-size: 1rem;
-      }
-
-      h4 {
-        font-weight: bold;
-        font-size: 1rem;
-      }
-    }
-
-    button {
-      margin-top: 2rem;
-      background-color: $dorado-claro;
-      border: none;
-      padding: 0.8rem 2rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-
-      a {
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-        font-size: 1rem;
-      }
-
+      text-align: center;
+      padding: 2rem;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, rgba($dorado-claro, 0.1) 0%, rgba($primario, 0.05) 100%);
+      
       &:hover {
-        background-color: darken($dorado-claro, 10%);
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, rgba($dorado-claro, 0.2) 0%, rgba($primario, 0.1) 100%);
+      }
+      
+      svg {
+        width: 60px;
+        height: 60px;
+        color: $primario;
+        margin-bottom: 1.5rem;
+        padding: 15px;
+        background: rgba($dorado-claro, 0.2);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+      }
+      
+      &:hover svg {
+        color: white;
+        background: $primario;
+        transform: scale(1.1);
+      }
+      
+      p {
+        font-weight: 600;
+        color: $primario;
+        font-size: 1.1rem;
+        margin: 0;
+        letter-spacing: 0.5px;
       }
     }
   }
-
-  @media (max-width: 900px) {
-    .caracteristicas {
-      flex-direction: column;
-      align-items: center;
+  
+  // Sección de productos
+  .productos {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    
+    &-items {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      
+      &:hover {
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      }
+      
+      img {
+        height: 250px;
+        object-fit: cover;
+      }
+      
+      
+      .info {
+        padding: 1.5rem;
+        
+        h3 {
+          font-size: 1.3rem;
+          color: $primario;
+          margin-bottom: 0.5rem;
+          font-weight: 600;
+        }
+        
+        h4 {
+          font-size: 1.5rem;
+          color: $dorado-claro;
+          margin: 0;
+          font-weight: 700;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+      }
     }
-
-    .productos-items {
-      width: 90%;
-      max-width: 300px;
+    
+    // Botón "Ver Todos Los Productos"
+    button {
+      grid-column: 1 / -1;
+      justify-self: center;
+      background: linear-gradient(135deg, $primario 0%, darken($primario, 15%) 100%);
+      border: none;
+      border-radius: 50px;
+      padding: 1rem 3rem;
+      margin-top: 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba($primario, 0.3);
+      
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba($primario, 0.4);
+        background: linear-gradient(135deg, lighten($primario, 5%) 0%, $primario 100%);
+      }
+      
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
     }
   }
+}
 
+// Media queries para responsividad
+@media (max-width: 760px) {
+  main {
+    .texto-presentacion {
+      padding: 2rem 1rem;
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      h2 {
+        font-size: 1.6rem;
+      }
+      
+      p {
+        font-size: 1.1rem;
+      }
+    }
+    
+
+@media (max-width: 480px) {
+  main {
+    .texto-presentacion {
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+    
+    .productos {
+      &-items {
+        img {
+          height: 200px;
+        }
+      }
+    }
+  }
+}
   @media (max-width: 600px) {
     .carrusel {
       height: auto;
@@ -243,7 +341,6 @@ main {
       align-items: center;
       margin: 5rem 0;
       article {
-        width: 80%;
         margin-bottom: 1.5rem;
         text-align: center;
       }
@@ -270,4 +367,5 @@ main {
       }
     }
   }
+}
 }

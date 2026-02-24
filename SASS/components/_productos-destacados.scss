@@ -1,0 +1,444 @@
+@import "../abstracts/variables";
+
+// === SECCIÓN DE PRODUCTOS DESTACADOS ===
+#productos-destacados-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $primario;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+// === CONTENEDOR GRID DE 3 PRODUCTOS ===
+.contenedor-destacados {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// === TARJETA DE PRODUCTO DESTACADO ===
+.productos-destacados-section {
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-color: $primario;
+  }
+}
+
+// === CONTENEDOR DE INFORMACIÓN ===
+.producto-info-destacado {
+  display: grid;
+  grid-template-rows: 60px auto 200px 1fr auto;
+  padding: 20px;
+  gap: 12px;
+}
+
+// === NOMBRE DEL PRODUCTO ===
+.producto-nombre-destacado {
+  color: $primario;
+  font-family: $tipografia;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.3px;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  align-self: start;
+}
+
+// === TIPO DE PRODUCTO ===
+.producto-tipo-destacado {
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin: 0;
+  color: #a1a1a1;
+}
+
+// === CONTENEDOR DE IMAGEN ===
+.producto-img-container-destacado {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 12px;
+}
+
+.producto-img-destacado {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+// === DESCRIPCIÓN ===
+.producto-descripcion-destacado {
+  font-size: 0.95rem;
+  margin: 0;
+  color: #666;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  align-self: start;
+}
+
+// === PRECIO ===
+.producto-precio-destacado {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  padding-top: 8px;
+  color: $primario;
+  align-self: end;
+}
+
+// === MENSAJE SIN PRODUCTOS ===
+.contenedor-destacados > p {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  padding: 40px 20px;
+}
+
+
+.btn-ver-todos {
+
+    display: inline-block; 
+    padding: 10px 20px; 
+    margin-top: 20px; 
+
+
+    background-color: $fondo-header; 
+    color: white; 
+    border: 1px solid #007bff; 
+    border-radius: 5px; 
+
+
+    text-decoration: none; 
+    font-size: 16px; 
+    font-weight: bold; 
+    text-align: center; 
+
+    transition: background-color 0.3s ease, border-color 0.3s ease; 
+    cursor: pointer;
+}
+
+.btn-ver-todos:hover {
+    background-color: $primario; 
+    border-color: $dorado-claro; 
+    color: $dorado-claro; 
+
+}
+
+
+// ==========================================
+// === RESPONSIVE DESIGN ===
+// ==========================================
+
+// === DESKTOP GRANDE (> 1400px) ===
+@media (min-width: 1401px) {
+  .contenedor-destacados {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1400px;
+  }
+
+  .producto-info-destacado {
+    padding: 24px;
+    gap: 14px;
+  }
+
+  .producto-nombre-destacado {
+    font-size: 1.3rem;
+  }
+
+  .producto-img-container-destacado {
+    height: 220px;
+  }
+
+  .producto-precio-destacado {
+    font-size: 1.4rem;
+  }
+}
+
+// === DESKTOP (1025px - 1400px) ===
+@media (min-width: 1025px) and (max-width: 1400px) {
+  .contenedor-destacados {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .producto-info-destacado {
+    padding: 20px;
+    gap: 12px;
+  }
+}
+
+// === TABLET GRANDE (769px - 1024px) ===
+@media (max-width: 1024px) {
+  #productos-destacados-section {
+    padding: 50px 20px;
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 35px;
+    }
+  }
+
+  .contenedor-destacados {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 0 16px;
+  }
+
+  .producto-info-destacado {
+    grid-template-rows: 55px auto 180px 1fr auto;
+    padding: 18px;
+    gap: 10px;
+  }
+
+  .producto-nombre-destacado {
+    font-size: 1.1rem;
+  }
+
+  .producto-tipo-destacado {
+    font-size: 0.85rem;
+  }
+
+  .producto-img-container-destacado {
+    height: 180px;
+    padding: 10px;
+  }
+
+  .producto-descripcion-destacado {
+    font-size: 0.9rem;
+  }
+
+  .producto-precio-destacado {
+    font-size: 1.2rem;
+  }
+}
+
+// === TABLET (481px - 768px) ===
+@media (max-width: 768px) {
+  #productos-destacados-section {
+    padding: 40px 16px;
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 30px;
+    }
+  }
+
+  .contenedor-destacados {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 12px;
+  }
+
+  .producto-info-destacado {
+    grid-template-rows: 50px auto 200px 1fr auto;
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .producto-nombre-destacado {
+    font-size: 1.15rem;
+  }
+
+  .producto-tipo-destacado {
+    font-size: 0.85rem;
+  }
+
+  .producto-img-container-destacado {
+    height: 200px;
+    padding: 12px;
+  }
+
+  .producto-descripcion-destacado {
+    font-size: 0.9rem;
+  }
+
+  .producto-precio-destacado {
+    font-size: 1.25rem;
+  }
+  .btn-ver-todos{
+        display: block;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+// === MOBILE (361px - 480px) ===
+@media (max-width: 480px) {
+  #productos-destacados-section {
+    padding: 35px 12px;
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 25px;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .contenedor-destacados {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 8px;
+  }
+
+  .productos-destacados-section {
+    border-radius: 10px;
+  }
+
+  .producto-info-destacado {
+    grid-template-rows: 48px auto 180px 1fr auto;
+    padding: 14px;
+    gap: 8px;
+  }
+
+  .producto-nombre-destacado {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .producto-tipo-destacado {
+    font-size: 0.8rem;
+    letter-spacing: 0.3px;
+  }
+
+  .producto-img-container-destacado {
+    height: 180px;
+    padding: 10px;
+  }
+
+  .producto-descripcion-destacado {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .producto-precio-destacado {
+    font-size: 1.15rem;
+    padding-top: 6px;
+  }
+}
+
+// === MOBILE PEQUEÑO (hasta 360px) ===
+@media (max-width: 360px) {
+  #productos-destacados-section {
+    padding: 30px 10px;
+
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+  }
+
+  .contenedor-destacados {
+    gap: 14px;
+    padding: 0 6px;
+  }
+
+  .producto-info-destacado {
+    grid-template-rows: 45px auto 160px 1fr auto;
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .producto-nombre-destacado {
+    font-size: 0.95rem;
+  }
+
+  .producto-tipo-destacado {
+    font-size: 0.75rem;
+  }
+
+  .producto-img-container-destacado {
+    height: 160px;
+    padding: 8px;
+  }
+
+  .producto-descripcion-destacado {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .producto-precio-destacado {
+    font-size: 1.05rem;
+    padding-top: 4px;
+  }
+}
+
+// === MOBILE EXTRA PEQUEÑO (hasta 320px) ===
+@media (max-width: 320px) {
+  #productos-destacados-section {
+    padding: 25px 8px;
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 18px;
+    }
+  }
+
+  .contenedor-destacados {
+    gap: 12px;
+  }
+
+  .producto-info-destacado {
+    grid-template-rows: 42px auto 140px 1fr auto;
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .producto-nombre-destacado {
+    font-size: 0.9rem;
+  }
+
+  .producto-tipo-destacado {
+    font-size: 0.7rem;
+  }
+
+  .producto-img-container-destacado {
+    height: 140px;
+    padding: 6px;
+  }
+
+  .producto-descripcion-destacado {
+    font-size: 0.75rem;
+  }
+
+  .producto-precio-destacado {
+    font-size: 1rem;
+  }
+}

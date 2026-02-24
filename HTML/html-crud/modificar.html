@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Producto</title>
+    <link rel="stylesheet" href="../../CSS/style.css">
+</head>
+<body>
+    <h1 class="encabezado-modificar">Modificar Producto</h1>
+    
+    <button class="boton-volver" onclick="history.back()">⟵ Volver</button>
+
+    <label for="select-productos">Selecciona un producto:</label><br /><br />
+    <select id="select-productos" required>
+        <option value="">Cargando productos...</option>
+    </select><br /><br />
+
+    <form id="form-modificar">
+        <label for="nombre">Nombre:</label><br />
+        <input type="text" id="nombre" required /><br /><br />
+
+        <label for="descripcion">Descripción:</label><br />
+        <textarea id="descripcion" required></textarea><br /><br />
+
+        <label for="precio">Precio:</label><br />
+        <input type="number" id="precio" step="0.01" required /><br /><br />
+
+<!--    <label for="stock">Stock:</label><br />
+        <input type="number" id="stock" required /><br /><br />-->
+
+        <label for="tipo">Tipo:</label><br />
+        <section class="filter-bar">
+        <select id="tipo" aria-label="Filtrar por producto" name="filtro-producto">
+            <option value="">Filtrar por producto</option>
+            <option value="Bcaa">Bcaa</option>
+            <option value="Cafeina">Cafeína</option>
+            <option value="Omega3">Omega 3</option>
+            <option value="Colageno">Colágeno</option>
+            <option value="Creatina">Creatina</option>
+            <option value="Magnesio">Magnesio</option>
+            <option value="Multivitaminico">Multivitamínico</option>
+            <option value="Pancakes">Pancakes</option>
+            <option value="Proteina">Proteína</option>
+            <option value="Pre Entreno">Pre Entreno</option>
+            <option value="L Carnitina">L Carnitina</option>
+        </select>
+        </section>
+
+        <br /><br />
+
+        <label for="imagen">Imagen (opcional):</label><br />
+        <input type="file" id="imagen" accept="image/*" /><br /><br />
+
+        <div id="preview"></div><br />
+
+        <button type="submit">Guardar cambios</button>
+    </form>
+
+  <script type="module" src="../../JS/js-crud/modificar-producto.js"></script>
+</body>
+</html>

@@ -14,12 +14,28 @@
         </a>
         <nav>
             <ul>
-                <li><a href="HTML/productos.html">Productos</a></li>
-                <li><a href="HTML/nosotros.html">Nosotros</a></li>
+                <li>
+                    <a href="HTML/productos.html">Productos</a>
+                </li>
+                <li>
+                    <a href="HTML/nosotros.html">Nosotros</a>
+                </li>
+                <li>
+                    <a class="btnLogin" href="HTML/ADMIN/Login.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="User-1--Streamline-Guidance-Free" height="24" width="24">
+                            <desc>
+                                User 1 Streamline Icon: https://streamlinehq.com
+                            </desc>
+                            <path stroke="#ffe138" d="M18.5 20.247V16S16 14.5 12 14.5 5.5 16 5.5 16v4.247M1.5 12C1.5 6.201 6.201 1.5 12 1.5S22.5 6.201 22.5 12 17.799 22.5 12 22.5 1.5 17.799 1.5 12Zm10.426 0.5S8.5 10.68 8.5 8c0 -1.933 1.569 -3.5 3.504 -3.5A3.495 3.495 0 0 1 15.5 8c0 2.68 -3.426 4.5 -3.426 4.5h-0.148Z" stroke-width="1"></path>
+                        </svg>
+                        ADMIN
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
     <main>
+
         <section class="carrusel" aria-label="Galería de productos destacados">
             <article class="carrusel-contenedor">
                 <button class="carrusel-btn anterior " aria-label="Anterior">‹</button>
@@ -40,12 +56,14 @@
                 <button class="carrusel-btn despues" aria-label="Siguiente">›</button>
             </article>
         </section>
+
         <section class="texto-presentacion">
-            <h1>Bienvenido a Suplementos Gold</h1>
+            <h1>Bienvenidos a Suplementos Gold</h1>
             <p>En Suplementos Gold ofrecemos una amplia gama de productos de alta calidad para complementar tu nutrición y mejorar tu rendimiento físico. Desde proteínas hasta aminoácidos, tenemos todo lo que necesitas para alcanzar tus objetivos de salud y fitness.</p>
 
             <h2>Descubre algunos productos para ayudarte a alcanzar tus metas</h2>
         </section>
+        
         <section class="caracteristicas">
             <article>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
@@ -60,31 +78,14 @@
                 <p>EQUIPAMIENTO ADECUADO PARA TUS NECESIDADES</p>
             </article>
         </section>
-        <section class="productos">
-            <article class="productos-items">
-                <img src="IMG/CAFEINA/CAffeine200.webp" alt="Cafeína 200mg" />
-                <article class="info">
-                    <h3>Cafeína 200mg</h3>
-                    <h4>$9.500</h4>
-                </article>
-            </article>
-            <article class="productos-items">
-                <img src="IMG/BCAA/Bcaa270g.webp" alt="BCAA" />
-                <article class="info">
-                    <h3>BCAA 270gr</h3>
-                    <h4>$25.500</h4>
-                </article>
-            </article>
-            <article class="productos-items">
-                <img src="IMG/PRE-ENTRENO/PreEntrenoTntstartDynamiteblueraze240g.webp" alt="Pre entreno" />
-                <article class="info">
-                    <h3>Pre Entreno 240gr</h3>
-                    <h4>$21.999</h4>
-                </article>
-            </article>
+        <section id="productos-destacados-section">
+            <h2>Productos destacados</h2>
+            <div id="productos-destacados" class="contenedor-destacados"></div>
 
-            <button><a href="HTML/productos.html">Ver Todos Los Productos</a></button>
+            <a href="HTML/productos.html" class="btn-ver-todos">Ver todos los productos</a>
         </section>
+        
+
     </main>
     <footer>
         <p>© 2025 Suplementos Gold. Todos los derechos reservados.</p>
@@ -106,6 +107,7 @@
             </li>
         </ul>
     </footer>
-    <script src="JS/carrusel.js"></script>
+    <script type="module" src="JS/carrusel.js"></script>
+    <script type="module" src="JS/productos-destacados-index.js"></script>
 </body>
 </html>

@@ -1,5 +1,4 @@
 @import "../abstracts/variables";
-
 header {
   display: flex;
   justify-content: space-between;
@@ -36,6 +35,33 @@ header {
       }
     }
   }
+  .btnLogin {
+    display: inline-flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 7px;
+    border: 1px solid $dorado-claro;
+    color: $dorado-claro;
+    background: transparent;
+    transition: 0.5s;
+    padding: 0.5rem 0.5rem;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      background-color: $dorado-claro;
+      color: $fondo-header;
+
+      svg path {
+        stroke: $fondo-header;
+      }
+    }
+  }
 
   // MEDIA QUERIES
   @media (max-width: 1024px) {
@@ -50,13 +76,13 @@ header {
     align-items: center;
 
     .logo {
-        margin-bottom: 1rem;
+      margin-bottom: 1rem;
     }
     header{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     nav ul {
       margin: center;
@@ -68,6 +94,10 @@ header {
         padding: 0.5rem 0;
         width: 100%;
       }
+    }
+    .btnLogin {
+      width: 100%;
+      justify-content: center;
     }
   }
 }
