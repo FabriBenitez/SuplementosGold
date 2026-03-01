@@ -1,5 +1,6 @@
 // js-crud/agregar.js
 import { supabase } from "../config/supabase.js";
+import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/+esm";
 
 const form = document.getElementById("form-agregar");
 
@@ -17,10 +18,10 @@ form.addEventListener("submit", async (e) => {
   try {
     let imagenUrl = null;
 
-    // 1. Subir imagen al bucket (si se seleccionó)
+    // 1. Subir imagen al bucket (si se selecciono)
     if (imagen) {
       const fileName = `${Date.now()}-${imagen.name}`;
-      const { data, error } = await supabase.storage
+      const { error } = await supabase.storage
         .from("productos_url")
         .upload(fileName, imagen, {
           cacheControl: "3600",
@@ -29,7 +30,7 @@ form.addEventListener("submit", async (e) => {
 
       if (error) throw error;
 
-      // Construir URL pública
+      // Construir URL publica
       const { data: publicUrl } = supabase.storage
         .from("productos_url")
         .getPublicUrl(fileName);
@@ -51,26 +52,35 @@ form.addEventListener("submit", async (e) => {
 
     if (insertError) throw insertError;
 
-    alert("✅ Producto agregado correctamente");
+    await Swal.fire({
+      icon: "success",
+      title: "Producto agregado",
+      text: "El producto se agrego correctamente.",
+      confirmButtonText: "Aceptar",
+    });
+
     form.reset();
   } catch (err) {
     console.error("Error al agregar producto:", err.message);
-    alert("❌ Error al agregar producto. Revisa la consola.");
+    await Swal.fire({
+      icon: "error",
+      title: "No se pudo agregar el producto",
+      text: "Revisa la consola para ver el detalle del error.",
+      confirmButtonText: "Aceptar",
+    });
   }
 });
 
 // Ejemplo: Obtener todos los datos de una tabla llamada 'countries'
 async function getCountries() {
-  const { data, error } = await supabase
-    .from('administrador')
-    .select('*');
+  const { data, error } = await supabase.from("administrador").select("*");
 
   if (error) {
-    console.error('Error al obtener datos:', error);
+    console.error("Error al obtener datos:", error);
     return;
   }
 
-  console.log('Datos de la tabla countries:', data);
+  console.log("Datos de la tabla countries:", data);
 }
 
 getCountries();

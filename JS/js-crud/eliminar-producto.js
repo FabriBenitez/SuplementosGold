@@ -1,11 +1,12 @@
 // js-crud/eliminar.js
 import { supabase } from "../config/supabase.js";
+import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/+esm";
 
 const selectProductos = document.getElementById("select-productos");
 const formEliminar = document.getElementById("form-eliminar");
 const preview = document.getElementById("preview");
 
-// 🔹 Cargar productos en el <select>
+// Cargar productos en el <select>
 async function cargarProductos() {
   const { data, error } = await supabase
     .from("productos")
@@ -22,7 +23,7 @@ async function cargarProductos() {
   data.forEach((producto) => {
     const option = document.createElement("option");
     option.value = producto.id;
-    option.textContent = `${producto.nombre} |💲${producto.precio}`;
+    option.textContent = `${producto.nombre} |$${producto.precio}`;
     selectProductos.appendChild(option);
   });
 
@@ -35,7 +36,7 @@ async function cargarProductos() {
   }
 }
 
-// 🔹 Mostrar preview de imagen al seleccionar producto
+// Mostrar preview de imagen al seleccionar producto
 selectProductos.addEventListener("change", async () => {
   const id = selectProductos.value;
 
@@ -59,11 +60,11 @@ selectProductos.addEventListener("change", async () => {
   if (producto?.imagen_url) {
     preview.innerHTML = `<img src="${producto.imagen_url}" alt="Imagen del producto" width="200" style="margin-top:10px;border:1px solid #ccc;border-radius:8px;" />`;
   } else {
-    preview.innerHTML = "<p>📷 Este producto no tiene imagen asociada</p>";
+    preview.innerHTML = "<p>Este producto no tiene imagen asociada</p>";
   }
 });
 
-// 🔹 Eliminar producto seleccionado
+// Eliminar producto seleccionado
 formEliminar.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -71,9 +72,16 @@ formEliminar.addEventListener("submit", async (e) => {
 
   if (!id) return;
 
-  // ⚠️ Confirmación antes de eliminar
-  const confirmar = confirm("¿Seguro que deseas eliminar este producto?");
-  if (!confirmar) return; // si cancela, no hace nada
+  const { isConfirmed } = await Swal.fire({
+    icon: "warning",
+    title: "Confirmar eliminacion",
+    text: "Seguro que deseas eliminar este producto?",
+    showCancelButton: true,
+    confirmButtonText: "Si, eliminar",
+    cancelButtonText: "Cancelar",
+  });
+
+  if (!isConfirmed) return;
 
   try {
     // 1. Obtener producto
@@ -98,22 +106,36 @@ formEliminar.addEventListener("submit", async (e) => {
       const fileName = producto.imagen_url.split("/").pop();
 
       const { error: storageError } = await supabase.storage
-        .from("productos_url") // 👈 asegúrate que el bucket se llame así
+        .from("productos_url")
         .remove([fileName]);
 
       if (storageError) {
-        console.warn("⚠️ No se pudo eliminar la imagen del bucket:", storageError.message);
+        console.warn(
+          "No se pudo eliminar la imagen del bucket:",
+          storageError.message,
+        );
       }
     }
 
-    alert("✅ Producto eliminado correctamente");
-    await cargarProductos(); // refrescar lista
-    preview.innerHTML = ""; // limpiar preview
+    await Swal.fire({
+      icon: "success",
+      title: "Producto eliminado",
+      text: "El producto se elimino correctamente.",
+      confirmButtonText: "Aceptar",
+    });
+
+    await cargarProductos();
+    preview.innerHTML = "";
   } catch (err) {
     console.error("Error al eliminar producto:", err.message);
-    alert("❌ Error al eliminar producto. Revisá la consola.");
+    await Swal.fire({
+      icon: "error",
+      title: "No se pudo eliminar el producto",
+      text: "Revisa la consola para ver el detalle del error.",
+      confirmButtonText: "Aceptar",
+    });
   }
 });
 
-// 🔹 Cargar productos al inicio
+// Cargar productos al inicio
 cargarProductos();

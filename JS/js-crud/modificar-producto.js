@@ -1,5 +1,6 @@
 // js-crud/modificar.js
 import { supabase } from "../config/supabase.js";
+import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/+esm";
 
 const selectProductos = document.getElementById("select-productos");
 const formModificar = document.getElementById("form-modificar");
@@ -12,11 +13,9 @@ const tipoInput = document.getElementById("tipo");
 const imagenInput = document.getElementById("imagen");
 const preview = document.getElementById("preview");
 
-// 🔹 Cargar lista de productos
+// Cargar lista de productos
 async function cargarProductos() {
-  const { data, error } = await supabase
-    .from("productos")
-    .select("id, nombre");
+  const { data, error } = await supabase.from("productos").select("id, nombre");
 
   if (error) {
     console.error("Error al cargar productos:", error.message);
@@ -33,7 +32,7 @@ async function cargarProductos() {
   });
 }
 
-// 🔹 Cargar datos del producto seleccionado
+// Cargar datos del producto seleccionado
 selectProductos.addEventListener("change", async () => {
   const id = selectProductos.value;
 
@@ -58,32 +57,47 @@ selectProductos.addEventListener("change", async () => {
   nombreInput.value = producto.nombre;
   descripcionInput.value = producto.descripcion;
   precioInput.value = producto.precio;
-/*  stockInput.value = producto.stock;*/
+  /*  stockInput.value = producto.stock;*/
   tipoInput.value = producto.tipo;
 
   // Preview de imagen
   if (producto.imagen_url) {
     preview.innerHTML = `<img src="${producto.imagen_url}" alt="Imagen" width="150" style="margin-top:10px;border:1px solid #ccc;border-radius:8px;" />`;
   } else {
-    preview.innerHTML = "<p>📷 Este producto no tiene imagen asociada</p>";
+    preview.innerHTML = "<p>Este producto no tiene imagen asociada</p>";
   }
 });
 
-// 🔹 Guardar cambios con confirmación
+// Guardar cambios con confirmacion
 formModificar.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const id = selectProductos.value;
-  if (!id) return alert("⚠️ Selecciona un producto primero");
+  if (!id) {
+    await Swal.fire({
+      icon: "warning",
+      title: "Seleccion requerida",
+      text: "Selecciona un producto primero.",
+      confirmButtonText: "Aceptar",
+    });
+    return;
+  }
 
-  // ✅ Confirmación
-  const confirmar = confirm("¿Seguro que deseas modificar este producto?");
-  if (!confirmar) return; // Si el usuario cancela, no se hace nada
+  const { isConfirmed } = await Swal.fire({
+    icon: "question",
+    title: "Confirmar modificacion",
+    text: "Seguro que deseas modificar este producto?",
+    showCancelButton: true,
+    confirmButtonText: "Si, modificar",
+    cancelButtonText: "Cancelar",
+  });
+
+  if (!isConfirmed) return;
 
   try {
     let imagen_url = null;
 
-    // Si se cargó una nueva imagen → subir al bucket
+    // Si se cargo una nueva imagen -> subir al bucket
     if (imagenInput.files.length > 0) {
       const file = imagenInput.files[0];
       const fileName = `${Date.now()}_${file.name}`;
@@ -93,7 +107,7 @@ formModificar.addEventListener("submit", async (e) => {
 
       if (uploadError) throw uploadError;
 
-      // Obtener URL pública
+      // Obtener URL publica
       const { data: publicUrl } = supabase.storage
         .from("productos_url")
         .getPublicUrl(fileName);
@@ -108,23 +122,32 @@ formModificar.addEventListener("submit", async (e) => {
         nombre: nombreInput.value,
         descripcion: descripcionInput.value,
         precio: parseFloat(precioInput.value),
-/*      stock: parseInt(stockInput.value),*/
+        /*      stock: parseInt(stockInput.value),*/
         tipo: tipoInput.value,
-        ...(imagen_url && { imagen_url }), // solo actualizar imagen si se subió
+        ...(imagen_url && { imagen_url }),
       })
       .eq("id", id);
 
     if (updateError) throw updateError;
 
-    alert("✅ Producto modificado correctamente");
+    await Swal.fire({
+      icon: "success",
+      title: "Producto modificado",
+      text: "Los cambios se guardaron correctamente.",
+      confirmButtonText: "Aceptar",
+    });
+
     await cargarProductos();
   } catch (err) {
     console.error("Error al modificar producto:", err.message);
-    alert("❌ Error al modificar producto. Revisá la consola.");
+    await Swal.fire({
+      icon: "error",
+      title: "No se pudo modificar el producto",
+      text: "Revisa la consola para ver el detalle del error.",
+      confirmButtonText: "Aceptar",
+    });
   }
 });
 
-// 🔹 Cargar productos al inicio
+// Cargar productos al inicio
 cargarProductos();
-
-

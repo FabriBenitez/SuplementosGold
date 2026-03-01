@@ -3,9 +3,8 @@ import { supabase } from "../JS/config/supabase.js";
 function crearLinkWhatsApp(producto) {
   const baseUrl = "https://wa.me/5492224529603";
   const nombre = producto?.nombre || "";
-  const tipo = producto?.tipo || "";
   const precio = producto?.precio ?? "";
-  const mensaje = `Hola! Estoy interesado en este producto:\n- Nombre: ${nombre}\n- Tipo: ${tipo}\n- Precio: $ ${precio}`;
+  const mensaje = `Hola! Estoy interesado en este producto:\n- Nombre: ${nombre}\n-  Precio: $ ${precio}`;
   return `${baseUrl}?text=${encodeURIComponent(mensaje)}`;
 }
 
