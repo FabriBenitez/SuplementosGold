@@ -13,6 +13,22 @@ const tipoInput = document.getElementById("tipo");
 const imagenInput = document.getElementById("imagen");
 const preview = document.getElementById("preview");
 
+function generarNombreArchivoSeguro(originalName) {
+  const extension = originalName.includes(".")
+    ? originalName.slice(originalName.lastIndexOf(".")).toLowerCase()
+    : "";
+  const baseName = originalName.replace(/\.[^/.]+$/, "");
+  const limpio = baseName
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9-_]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 60);
+
+  return `${Date.now()}-${limpio || "archivo"}${extension}`;
+}
+
 // Cargar lista de productos
 async function cargarProductos() {
   const { data, error } = await supabase.from("productos").select("id, nombre");
@@ -100,7 +116,7 @@ formModificar.addEventListener("submit", async (e) => {
     // Si se cargo una nueva imagen -> subir al bucket
     if (imagenInput.files.length > 0) {
       const file = imagenInput.files[0];
-      const fileName = `${Date.now()}_${file.name}`;
+      const fileName = generarNombreArchivoSeguro(file.name);
       const { error: uploadError } = await supabase.storage
         .from("productos_url")
         .upload(fileName, file);

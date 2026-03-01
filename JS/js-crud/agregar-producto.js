@@ -4,6 +4,22 @@ import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/+esm";
 
 const form = document.getElementById("form-agregar");
 
+function generarNombreArchivoSeguro(originalName) {
+  const extension = originalName.includes(".")
+    ? originalName.slice(originalName.lastIndexOf(".")).toLowerCase()
+    : "";
+  const baseName = originalName.replace(/\.[^/.]+$/, "");
+  const limpio = baseName
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9-_]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 60);
+
+  return `${Date.now()}-${limpio || "archivo"}${extension}`;
+}
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -20,7 +36,7 @@ form.addEventListener("submit", async (e) => {
 
     // 1. Subir imagen al bucket (si se selecciono)
     if (imagen) {
-      const fileName = `${Date.now()}-${imagen.name}`;
+      const fileName = generarNombreArchivoSeguro(imagen.name);
       const { error } = await supabase.storage
         .from("productos_url")
         .upload(fileName, imagen, {
