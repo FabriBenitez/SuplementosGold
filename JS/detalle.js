@@ -5,8 +5,7 @@ function crearLinkWhatsApp(producto) {
   const nombre = producto?.nombre || "";
   const precio = producto?.precio ?? "";
   const mensaje = `Hola! Estoy interesado en este producto:
-  \n ${nombre}
-  \n-  Precio: $ ${precio}`;
+  \n ${nombre}\nPrecio: $ ${precio}`;
   return `${baseUrl}?text=${encodeURIComponent(mensaje)}`;
 }
 
