@@ -1,0 +1,851 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap');
+
+/* Suplementos Cuco Premium Theme (Impeccable Style & Emil Kowalski vibes) */
+:root {
+  --cuco-gold: #ffe138;
+  --cuco-dark: #18181b; /* Modern Zinc-900 */
+  --cuco-darker: #09090b; /* Zinc-950 */
+  --cuco-light: #fafafa;
+  --cuco-surface: #27272a; /* Zinc-800 for cards */
+  --cuco-text-muted: #a1a1aa; /* Zinc-400 */
+  --cuco-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Multilayer soft shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.5), 0 2px 4px -1px rgba(0,0,0,0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -2px rgba(0,0,0,0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.5), 0 10px 10px -5px rgba(0,0,0,0.4);
+  --shadow-gold: 0 8px 20px rgba(255, 225, 56, 0.15);
+}
+
+/* =========================================
+   1. TYPOGRAPHY OVERRIDES
+   ========================================= */
+body, main, p, a, span, button, input, select, li {
+  font-family: 'Inter', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, .encabezado-productos {
+  font-family: 'Outfit', sans-serif !important;
+  letter-spacing: -0.02em !important;
+  color: white !important;
+}
+
+/* =========================================
+   2. GLOBAL BACKGROUND & PAW PRINTS
+   ========================================= */
+body {
+  background-color: var(--cuco-darker) !important;
+  color: white !important;
+}
+
+main {
+  background-color: transparent !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Faint golden paw prints */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -30 572 572" fill="%23ffe138" opacity="0.04"><path d="M226.5 92.9c14.3 7.3 22.8 23 20.8 38.6-3.8 31-31.9 51.6-62.8 45.6-28.8-5.6-48.4-33-44.4-61.9 3.3-23.7 22.4-42.3 45.9-45.5 14.5-2 28.5 3.9 40.5 23.2zm-97.1 113.6c-27-14.7-59.5-2.2-72 26.2-12 27.2-1.9 59.5 22.6 72 27 14.7 59.5 2.2 72-26.2 12-27.3 1.9-59.6-22.6-72zm253.2-26.2c-12.5-28.4-45-40.9-72-26.2-24.5 12.5-34.6 44.8-22.6 72 12.5 28.4 45 40.9 72 26.2 24.5-12.5 34.6-44.8 22.6-72zm97.5 98.2c-20.9-29.3-61.7-37.4-91.8-18.1-27.4 17.6-35.3 53.6-18.3 81.6 15.6 25.6 49.3 35.5 76.5 22.2 24.7-12 36.9-40.4 33.6-85.7zm-225.2 27c-48.9-20.1-105.7 6.4-123.6 56.6-17.1 48.2-1.5 101.4 39.5 131.7 40.5 30 100.9 28.9 140.2-2.7 39.1-31.4 52.8-84.3 33.3-132.8-16.7-41.9-56.1-66.2-89.4-52.8z"/></svg>');
+  background-size: 110px 110px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+main > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   3. COLOR CORRECTIONS (Dark Theme)
+   ========================================= */
+.caracteristicas article p, .productos-items .info h3 {
+  color: white !important;
+}
+
+.productos-items .info h4 {
+  color: var(--cuco-gold) !important;
+}
+
+.texto-presentacion p, .info-nosotros p {
+  color: var(--cuco-text-muted) !important;
+  line-height: 1.7 !important;
+  font-size: 1.15rem !important;
+}
+
+header {
+  background-color: rgba(9, 9, 11, 0.8) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+}
+
+nav ul li a {
+  color: white !important;
+}
+nav ul li a:hover {
+  color: var(--cuco-gold) !important;
+}
+
+footer {
+  background-color: var(--cuco-darker) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+footer p {
+  color: var(--cuco-text-muted) !important;
+}
+
+.caracteristicas article svg {
+  background: rgba(255, 225, 56, 0.1) !important;
+  color: var(--cuco-gold) !important;
+}
+.caracteristicas article:hover svg {
+  background: var(--cuco-gold) !important;
+  color: var(--cuco-darker) !important;
+}
+
+/* =========================================
+   4. GLASSMORPHISM & SHADOWS
+   ========================================= */
+.carrusel-btn {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 50% !important;
+  width: 50px !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: var(--shadow-md) !important;
+  color: white !important;
+}
+.carrusel-btn:hover {
+  background: var(--cuco-gold) !important;
+  color: var(--cuco-darker) !important;
+  transform: translateY(-50%) scale(1.1) !important;
+}
+
+/* Cards elevation */
+.caracteristicas article, .productos-items, .card-producto {
+  background: var(--cuco-surface) !important;
+  border: 1px solid rgba(255,255,255,0.05) !important;
+  box-shadow: var(--shadow-lg) !important;
+  transition: transform 0.4s var(--cuco-ease), box-shadow 0.4s var(--cuco-ease) !important;
+}
+.caracteristicas article:hover, .productos-items:hover, .card-producto:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: var(--shadow-xl) !important;
+  border-color: rgba(255, 225, 56, 0.2) !important;
+}
+
+/* Pill buttons */
+.btn-ver-todos, button[type="submit"], .carrusel-btn-add {
+  background: white !important;
+  color: var(--cuco-darker) !important;
+  border-radius: 9999px !important;
+  font-weight: 700 !important;
+  box-shadow: var(--shadow-md) !important;
+  letter-spacing: 0.5px !important;
+  border: none !important;
+}
+.btn-ver-todos:hover, button[type="submit"]:hover {
+  background: var(--cuco-gold) !important;
+  color: var(--cuco-darker) !important;
+  box-shadow: var(--shadow-gold) !important;
+  transform: translateY(-3px) !important;
+}
+
+/* =========================================
+   5. MICRO-INTERACTIONS & ANIMATIONS
+   ========================================= */
+.cuco-animate {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 0.8s var(--cuco-ease), transform 0.8s var(--cuco-ease);
+  will-change: opacity, transform;
+}
+
+.cuco-animate.cuco-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.cuco-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s var(--cuco-ease), transform 0.8s var(--cuco-ease);
+}
+
+.cuco-stagger.cuco-revealed > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cuco-stagger.cuco-revealed > *:nth-child(1) { transition-delay: 0.1s; }
+.cuco-stagger.cuco-revealed > *:nth-child(2) { transition-delay: 0.2s; }
+.cuco-stagger.cuco-revealed > *:nth-child(3) { transition-delay: 0.3s; }
+.cuco-stagger.cuco-revealed > *:nth-child(4) { transition-delay: 0.4s; }
+.cuco-stagger.cuco-revealed > *:nth-child(5) { transition-delay: 0.5s; }
+
+.logo {
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(255, 225, 56, 0.15);
+  transition: transform 0.4s var(--cuco-ease), box-shadow 0.4s var(--cuco-ease);
+  width: auto;
+  max-height: 80px; 
+}
+.logo:hover {
+  transform: scale(1.05) rotate(-3deg);
+  box-shadow: 0 6px 25px rgba(255, 225, 56, 0.4);
+}
+
+.btnLogin {
+  transition: all 0.3s var(--cuco-ease) !important;
+}
+.btnLogin:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 225, 56, 0.2);
+}
+.btnLogin:hover svg {
+  transform: translateX(2px);
+  transition: transform 0.3s var(--cuco-ease);
+}
+
+.iconos-footer {
+  transition: transform 0.3s var(--cuco-ease), filter 0.3s var(--cuco-ease);
+}
+.iconos-footer:hover {
+  transform: scale(1.15) translateY(-3px);
+  filter: drop-shadow(0 4px 8px rgba(255, 225, 56, 0.4));
+}
+
+/* =========================================
+   6. FILTROS COMPONENT FIX & UI UPGRADE
+   ========================================= */
+.filtros {
+  max-width: 90% !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1.2rem !important;
+  background-color: var(--cuco-darker) !important;
+  padding: 1.2rem 2rem !important;
+  border-radius: 16px !important;
+  box-shadow: var(--shadow-md) !important;
+  justify-content: center !important;
+}
+
+/* Remove the problematic right margin */
+.filtros #ordenPrecio, .filtros #filtrarTipo {
+  margin: 0 !important;
+}
+
+.filtros label {
+  font-weight: 500 !important;
+  color: var(--cuco-gold) !important;
+  display: flex !important;
+  align-items: center !important;
+  font-size: 0.95rem !important;
+}
+
+.filtros select {
+  padding: 0.7rem 1.2rem !important;
+  border-radius: 12px !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 225, 56, 0.2) !important;
+  color: white !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  outline: none !important;
+  transition: all 0.3s var(--cuco-ease) !important;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffe138' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 1rem center !important;
+  background-size: 1em !important;
+  padding-right: 2.5rem !important;
+}
+
+.filtros select:hover, .filtros select:focus {
+  border-color: var(--cuco-gold) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 0 0 3px rgba(255, 225, 56, 0.1) !important;
+}
+
+.filtros select option {
+  background-color: var(--cuco-darker) !important;
+  color: white !important;
+}
+
+/* Mobile Specific Fixes */
+@media (max-width: 600px) {
+  .filtros {
+    max-width: 90% !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 1.5rem !important;
+    gap: 0.8rem !important;
+  }
+  
+  .filtros select {
+    width: 100% !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+
+/* =========================================
+   7. PRODUCT DETAIL VIEW UPGRADE (Impeccable Style)
+   ========================================= */
+.detalle-card {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 4rem !important;
+  background: var(--cuco-surface) !important;
+  padding: 3rem !important;
+  border-radius: 24px !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4) !important;
+  max-width: 1000px !important;
+  margin: 3rem auto 6rem !important;
+  align-items: center !important;
+}
+
+.detalle-img {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  height: auto !important;
+  max-height: 450px !important;
+  object-fit: contain !important;
+  border-radius: 16px !important;
+  background-color: white !important;
+  padding: 1rem !important;
+  transition: transform 0.5s var(--cuco-ease) !important;
+}
+.detalle-img:hover {
+  transform: scale(1.02) !important;
+}
+
+.detalle-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+  text-align: left !important;
+  align-items: flex-start !important;
+}
+
+.detalle-info h1 {
+  font-size: 3rem !important;
+  margin: 0 !important;
+  color: white !important;
+  line-height: 1.1 !important;
+  border-bottom: none !important;
+}
+
+.detalle-tipo {
+  display: inline-block !important;
+  background: rgba(255, 225, 56, 0.1) !important;
+  color: var(--cuco-gold) !important;
+  padding: 0.4rem 1rem !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  font-size: 0.8rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  border: 1px solid rgba(255, 225, 56, 0.2) !important;
+  margin: 0 !important;
+}
+
+.detalle-descripcion {
+  font-size: 1.15rem !important;
+  line-height: 1.6 !important;
+  color: var(--cuco-text-muted) !important;
+  margin: 0 !important;
+}
+
+.detalle-precio {
+  font-size: 3rem !important;
+  font-weight: 800 !important;
+  color: var(--cuco-gold) !important;
+  margin: 0 !important;
+  font-family: 'Outfit', sans-serif !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.boton-wpp {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+  background-color: transparent !important;
+  color: #25D366 !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  padding: 1rem 2rem !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  border: 1px solid #25D366 !important;
+  transition: all 0.3s var(--cuco-ease) !important;
+  width: fit-content !important;
+  margin-top: 1rem !important;
+}
+.boton-wpp::before {
+  content: "\f232";
+  font-family: "Font Awesome 6 Brands", "FontAwesome";
+  font-size: 1.3rem;
+}
+.boton-wpp:hover {
+  background-color: rgba(37, 211, 102, 0.1) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.2) !important;
+}
+
+.boton-volver {
+  background: var(--cuco-surface) !important;
+  color: white !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  padding: 0.5rem 1.2rem !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s var(--cuco-ease) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  margin: 2rem auto 0 auto !important; /* Center it nicely above the card */
+  box-shadow: var(--shadow-sm) !important;
+  width: fit-content !important;
+}
+.boton-volver:hover {
+  background: rgba(255,255,255,0.05) !important;
+  border-color: rgba(255,255,255,0.2) !important;
+  transform: translateX(-4px) !important;
+}
+
+@media (max-width: 900px) {
+  .detalle-card {
+    grid-template-columns: 1fr !important;
+    padding: 1.5rem !important;
+    margin: 1.5rem auto !important;
+    width: 92% !important;
+    gap: 1.5rem !important;
+  }
+  .detalle-img {
+    padding: 0.5rem !important;
+    max-height: 250px !important;
+  }
+  .detalle-info {
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 0.8rem !important;
+  }
+  .detalle-info h1 {
+    font-size: 2.2rem !important;
+  }
+  .boton-wpp {
+    width: 100% !important;
+    margin-top: 0.5rem !important;
+  }
+  .boton-volver {
+    margin: 1rem auto !important;
+  }
+}
+
+
+/* =========================================
+   8. HERO SECTION (DOG + SUPPLEMENTS VIBE)
+   ========================================= */
+.hero-cuco {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  max-width: 1200px !important;
+  margin: 4rem auto 6rem !important;
+  padding: 0 2rem !important;
+  gap: 4rem !important;
+}
+
+.hero-texto {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+
+.badge-novedad {
+  display: inline-block !important;
+  background: rgba(255, 225, 56, 0.1) !important;
+  color: var(--cuco-gold) !important;
+  padding: 0.5rem 1.2rem !important;
+  border-radius: 9999px !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  margin-bottom: 1.5rem !important;
+  border: 1px solid rgba(255, 225, 56, 0.2) !important;
+  box-shadow: 0 0 15px rgba(255, 225, 56, 0.1) !important;
+}
+
+.hero-texto h1 {
+  font-size: 4rem !important;
+  line-height: 1.1 !important;
+  color: white !important;
+  margin: 0 0 1.5rem !important;
+}
+.hero-texto h1 span {
+  color: var(--cuco-gold) !important;
+  text-shadow: 0 0 30px rgba(255, 225, 56, 0.3) !important;
+}
+
+.hero-texto p {
+  font-size: 1.2rem !important;
+  line-height: 1.6 !important;
+  color: #a1a1aa !important; /* Zinc-400 */
+  margin: 0 0 2.5rem !important;
+  max-width: 500px !important;
+}
+
+.hero-botones {
+  display: flex !important;
+  gap: 1.5rem !important;
+}
+
+.hero-botones a.btn-primario {
+  background: var(--cuco-gold) !important;
+  color: var(--cuco-darker) !important;
+  padding: 1rem 2.5rem !important;
+  border-radius: 9999px !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  text-decoration: none !important;
+  box-shadow: var(--shadow-gold) !important;
+  transition: all 0.3s var(--cuco-ease) !important;
+}
+.hero-botones a.btn-primario:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 12px 30px rgba(255, 225, 56, 0.4) !important;
+}
+
+.hero-botones a.btn-secundario {
+  background: transparent !important;
+  color: white !important;
+  padding: 1rem 2.5rem !important;
+  border-radius: 9999px !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  transition: all 0.3s var(--cuco-ease) !important;
+}
+.hero-botones a.btn-secundario:hover {
+  background: rgba(255,255,255,0.05) !important;
+  border-color: var(--cuco-gold) !important;
+  transform: translateY(-3px) !important;
+}
+
+.hero-imagen-wrapper {
+  flex: 1 !important;
+  position: relative !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.hero-glow {
+  position: absolute !important;
+  width: 300px !important;
+  height: 300px !important;
+  background: var(--cuco-gold) !important;
+  border-radius: 50% !important;
+  filter: blur(100px) !important;
+  opacity: 0.15 !important;
+  z-index: 0 !important;
+  animation: pulse-glow 4s ease-in-out infinite alternate !important;
+}
+
+@keyframes pulse-glow {
+  0% { transform: scale(1); opacity: 0.15; }
+  100% { transform: scale(1.2); opacity: 0.25; }
+}
+
+.hero-dog-image {
+  position: relative !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  max-width: 450px !important;
+  border-radius: 50% !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5) !important;
+  border: 2px solid rgba(255, 225, 56, 0.2) !important;
+  transition: transform 0.5s var(--cuco-ease) !important;
+}
+.hero-dog-image:hover {
+  transform: scale(1.05) rotate(-2deg) !important;
+  border-color: var(--cuco-gold) !important;
+}
+
+@media (max-width: 900px) {
+  .hero-cuco {
+    flex-direction: column !important; /* Text first, then image */
+    text-align: center !important;
+    gap: 2.5rem !important;
+    margin: 2rem auto 3rem !important;
+    padding: 0 1.5rem !important;
+  }
+  .hero-texto {
+    align-items: center !important;
+  }
+  .badge-novedad {
+    font-size: 0.8rem !important;
+    margin-bottom: 1.2rem !important;
+  }
+  .hero-texto h1 {
+    font-size: 2.2rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
+  }
+  .hero-texto p {
+    font-size: 1rem !important;
+    margin-bottom: 2rem !important;
+    padding: 0 0.5rem !important;
+  }
+  .hero-botones {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 1rem !important;
+    max-width: 320px !important;
+  }
+  .hero-botones a {
+    width: 100% !important;
+    padding: 0.9rem !important;
+    font-size: 1rem !important;
+  }
+  .hero-dog-image {
+    max-width: 260px !important; /* Much more balanced size */
+    margin: 0 auto !important;
+  }
+  .hero-glow {
+    width: 200px !important;
+    height: 200px !important;
+  }
+}
+
+
+/* =========================================
+   9. FIXES FOR DARK THEME COMPONENTS
+   ========================================= */
+
+/* 9.1 Featured Products & Catalog Cards (.card-producto) */
+.productos-destacados-section, .card-producto {
+  background-color: var(--cuco-surface) !important;
+  border: 1px solid rgba(255,255,255,0.05) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+.productos-destacados-section:hover, .card-producto:hover {
+  border-color: rgba(255, 225, 56, 0.2) !important;
+  box-shadow: var(--shadow-xl) !important;
+}
+.producto-nombre-destacado, .producto-nombre {
+  color: white !important;
+}
+.producto-descripcion-destacado, .producto-tipo-destacado, .producto-descripcion, .producto-tipo {
+  color: var(--cuco-text-muted) !important;
+}
+.producto-precio-destacado, .producto-precio {
+  color: var(--cuco-gold) !important;
+  font-weight: 800 !important;
+  font-size: 1.5rem !important;
+  margin: 0 !important;
+}
+.producto-img-container-destacado, .producto-img-container {
+  background-color: transparent !important;
+  border-radius: 12px !important;
+  padding: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.encabezado-productos {
+  text-align: center !important;
+  margin: 3rem 0 2rem !important;
+  font-size: 3rem !important;
+  color: white !important;
+}
+
+/* 9.2 Nosotros Section */
+main .info-nosotros {
+  background-color: var(--cuco-surface) !important;
+  border: 1px solid rgba(255,255,255,0.05) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+main .info-nosotros p {
+  color: var(--cuco-text-muted) !important;
+}
+main .img-nosotros {
+  border: 2px solid rgba(255, 225, 56, 0.2) !important;
+  box-shadow: var(--shadow-gold) !important;
+}
+
+/* 9.3 Product Detail Box overrides */
+.detalle-info h1 {
+  border-bottom: none !important;
+}
+.detalle-precio {
+  background-color: transparent !important;
+  color: var(--cuco-gold) !important;
+  text-align: left !important;
+  padding: 0 !important;
+  margin: 1rem 0 !important;
+}
+
+/* 9.4 Fix original styles blue colors */
+.detalle-tipo {
+  color: var(--cuco-text-muted) !important;
+}
+.detalle-descripcion {
+  color: #d4d4d8 !important; /* Zinc-300 */
+}
+
+
+/* =========================================
+   10. FIXING OLD WHITE WRAPPERS
+   ========================================= */
+#productos-destacados-section, main .caracteristicas {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+#productos-destacados-section h2 {
+  color: white !important;
+}
+
+
+/* =========================================
+   11. DEEP MOBILE UX/UI FIXES
+   ========================================= */
+@media (max-width: 768px) {
+  /* 1. Fix Product Grids on Mobile */
+  .productos-grid, .contenedor-destacados, main .caracteristicas {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 1rem !important;
+  }
+  
+  /* Make sure product images don't overflow */
+  .producto-img-container-destacado, .producto-img-container {
+    height: auto !important;
+    padding: 1rem !important;
+  }
+  .producto-img-destacado, .producto-img {
+    max-height: 220px !important;
+    object-fit: contain !important;
+    width: 100% !important;
+  }
+
+  /* 2. Fix the Nosotros Card */
+  main .info-nosotros {
+    width: 95% !important;
+    padding: 2rem 1.5rem !important;
+    margin: 2rem auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  main .info-nosotros img {
+    width: 100% !important;
+    max-width: 160px !important;
+    height: auto !important;
+    margin: 0 auto 1.5rem auto !important;
+    border-radius: 50% !important;
+  }
+  main .info-nosotros p {
+    font-size: 1rem !important;
+    text-align: center !important;
+    line-height: 1.6 !important;
+  }
+
+  /* 3. Fix the Header Navigation */
+  header {
+    padding: 1rem !important;
+  }
+  header nav ul {
+    gap: 1.2rem !important;
+    margin: 1rem 0 0 0 !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    padding: 0 !important;
+  }
+  header nav ul li a {
+    font-size: 0.95rem !important;
+    padding: 0.5rem !important;
+  }
+  header .logo {
+    max-width: 200px !important;
+    height: auto !important;
+  }
+
+  /* 4. Fix typography scaling */
+  .encabezado-productos, .texto-presentacion h1, #productos-destacados-section h2 {
+    font-size: 2.2rem !important;
+    padding: 0 1rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  /* 5. Fix card layouts internally so they breathe */
+  .producto-info-destacado, .producto-info {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+    padding: 1.5rem !important;
+    text-align: center !important;
+    height: auto !important;
+  }
+  .producto-nombre-destacado, .producto-nombre {
+    font-size: 1.3rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+  .producto-tipo-destacado, .producto-tipo {
+    font-size: 0.85rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .producto-precio-destacado, .producto-precio {
+    font-size: 1.8rem !important;
+    margin-top: 1rem !important;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .detalle-card {
+    width: 95% !important;
+    padding: 1.2rem !important;
+    margin: 1rem auto !important;
+    gap: 1rem !important;
+  }
+  .detalle-img {
+    max-height: 220px !important;
+  }
+  .detalle-info {
+    gap: 0.6rem !important;
+  }
+  .detalle-info h1 {
+    font-size: 1.8rem !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  .detalle-precio {
+    font-size: 2.2rem !important;
+  }
+}
+
