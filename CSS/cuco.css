@@ -849,3 +849,28 @@ main .img-nosotros {
   }
 }
 
+
+/* =========================================
+   12. POR QUÉ CUCO (STORY PAGE)
+   ========================================= */
+.info-nosotros p {
+  text-align: left !important;
+  margin-bottom: 1.2rem !important;
+  line-height: 1.6 !important;
+  color: #d4d4d8 !important;
+}
+.info-nosotros .cuco-story-title {
+  font-size: 1.5rem !important;
+  color: var(--cuco-gold) !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+}
+.info-nosotros .cuco-story-highlight {
+  font-size: 1.2rem !important;
+  color: white !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  margin: 2rem 0 !important;
+}
+
